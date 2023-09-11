@@ -14,17 +14,17 @@ $color-pale-grey: #F0F0F0 !default;
 // Logo
 $img-logo-positive: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_positive.svg");
 $img-logo-negative: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_negative.svg");
-$logo-position: 5% 102% !default;
-$logo-size: 10% !default;
 
 // Title
-$title-font-size: 5vw !default;
+$title-font-size: 4rem !default;
 $title-font-weight: 700 !default; // 700 is bold
 // Subtitle
-$subtitle-font-size: 3vw !default;
+$subtitle-font-size: 2rem !default;
 $subtitle-font-weight: 700 !default;
 // Author
-$author-font-size: 1.5vw !default;
+$author-font-size: 1.33rem !default;
+// Date
+$date-font-size: 2rem !default;
 
 
 // Colors
@@ -50,12 +50,26 @@ $code-color: $color-primary !default;
     color: $color-primary;
 }
 
+.reveal .slide-logo {
+    max-height: 6rem !important;
+}
+
+.reveal > .backgrounds {
+    z-index: -1;
+}
+
+.reveal .sourceCode {
+    outline: thin solid $color-primary !important;
+    border: none !important;
+    background-color: $color-pale-rose !important;
+}
+
 // TITLE SLIDE 
 .reveal .slide-background.quarto-title-block {
     background-color: $presentation-heading-color;
     background-image: $img-logo-negative;
-    background-size: contain, $logo-size;
-    background-position: 100% 50%, $logo-position;
+    background-size: 35%;
+    background-position: 95% 50%;
     background-repeat: no-repeat;
 }
 
@@ -65,7 +79,7 @@ $code-color: $color-primary !default;
         color: #ffffff !important;
         text-shadow: none;
         text-align: left;
-        max-width: 70%;
+        max-width: 60%;
     }
 
     .title {
@@ -75,7 +89,13 @@ $code-color: $color-primary !default;
 
     .subtitle {
         font-style: italic;
+        font-weight: $subtitle-font-weight;
         font-size: $subtitle-font-size;
+    }
+
+    .date {
+        //font-style: italic;
+        font-size: $date-font-size;
     }
 
     .quarto-title-authors {
@@ -85,20 +105,24 @@ $code-color: $color-primary !default;
 
 }
 
-// Transition slides
+// No slide number on title slide
+.reveal .slide-number > a[href*='title-slide'] {
+    display: none;
+  }
+
+// TRANSITION SLIDES
+.reveal .slide-background.slide.level1 {
+    background-color: $color-primary;
+    background-image: $img-logo-negative;
+    background-size: 35%;
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+}
 
 .reveal .slide.level1 > h1 {
-    color: $color-primary;
+    color: #ffffff;
 }
 
 .reveal .h2 {
     color: $color-primary !important;
 }
-
-// CODE
-.reveal .sourceCode {
-    border: none !important;
-    background-color: $color-pale-rose !important;
-}
-
-/* TODO: Provide custom CSS rules */

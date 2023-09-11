@@ -1,9 +1,33 @@
 ---
-title: Untitled
+title: A KI template
+subtitle: To give quarto revealjs presentations that KI touch
 format:
   kise-revealjs: default
-author: Simon Steiger
+author:
+  - name: Jannette Roe
+    url: www.google.com
+  - name: Roger Rubicks
+  - name: Shellie Trenton
 date: last-modified
+include-after: |
+  <script type="text/javascript">
+    Reveal.on('ready', event => {
+      if (event.indexh === 0) {
+        document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
+      }
+    });
+    Reveal.addEventListener('slidechanged', (event) => {
+      // Remove logo from title page
+      if (event.indexh === 0) {
+        Reveal.configure({ slideNumber: null });
+        document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
+      }
+      if (event.indexh === 1) { 
+        Reveal.configure({ slideNumber: 'c' });
+        document.querySelector("div.has-logo > img.slide-logo").style.display = null;
+      }
+    });
+  </script>
 ---
 
 # h1 Header 1
