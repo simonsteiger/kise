@@ -1,8 +1,104 @@
 /*-- scss:defaults --*/
 
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=DM+Sans:400,700);
+$font-family-sans-serif: "DM Sans", Regular Regular, serif !default;
+
+// Color palette
+$color-primary: #570033 !default;
+$color-secondary: #FD886F !default;
+$color-pale-rose: #FEECEC !default;
+$color-pale-blue: #EAF4F5 !default;
+$color-pale-grey: #F0F0F0 !default;
+
+// Logo
+$img-logo-positive: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_positive.svg");
+$img-logo-negative: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_negative.svg");
+$logo-position: 5% 102% !default;
+$logo-size: 10% !default;
+
+// Title
+$title-font-size: 5vw !default;
+$title-font-weight: 700 !default; // 700 is bold
+// Subtitle
+$subtitle-font-size: 3vw !default;
+$subtitle-font-weight: 700 !default;
+// Author
+$author-font-size: 1.5vw !default;
+
+
+// Colors
+$presentation-heading-color: $color-primary;
+
+// Light and dark
+$bg-light: #ffffff !default;
+$text-light: #ffffff !default;
+$bg-dark: $color-primary !default;
+$text-dark: $color-primary !default;
+// Link & Code
+$link-color: $color-primary !default;
+$code-color: $color-primary !default;
+
+
 /* TODO: Customize presentation appearance by setting SCSS variables */
 /* See https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */
 
 /*-- scss:rules --*/
+
+// DEFAULT
+.reveal .progress {
+    color: $color-primary;
+}
+
+// TITLE SLIDE 
+.reveal .slide-background.quarto-title-block {
+    background-color: $presentation-heading-color;
+    background-image: $img-logo-negative;
+    background-size: contain, $logo-size;
+    background-position: 100% 50%, $logo-position;
+    background-repeat: no-repeat;
+}
+
+#title-slide {
+
+    .title, .subtitle, .institute, .quarto-title-authors, .date {
+        color: #ffffff !important;
+        text-shadow: none;
+        text-align: left;
+        max-width: 70%;
+    }
+
+    .title {
+        font-weight: $title-font-weight;
+        font-size: $title-font-size;
+    }
+
+    .subtitle {
+        font-style: italic;
+        font-size: $subtitle-font-size;
+    }
+
+    .quarto-title-authors {
+        font-size: $author-font-size;
+        display: block;
+    }
+
+}
+
+// Transition slides
+
+.reveal .slide.level1 > h1 {
+    color: $color-primary;
+}
+
+.reveal .h2 {
+    color: $color-primary !important;
+}
+
+// CODE
+.reveal .sourceCode {
+    border: none !important;
+    background-color: $color-pale-rose !important;
+}
 
 /* TODO: Provide custom CSS rules */
