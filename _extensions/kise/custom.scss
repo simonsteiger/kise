@@ -26,7 +26,6 @@ $author-font-size: 1.33rem !default;
 // Date
 $date-font-size: 2rem !default;
 
-
 // Colors
 $presentation-heading-color: $color-primary;
 
@@ -39,6 +38,9 @@ $text-dark: $color-primary !default;
 $link-color: $color-primary !default;
 $code-color: $color-primary !default;
 
+.reveal.has-logo {
+
+}
 
 /* TODO: Customize presentation appearance by setting SCSS variables */
 /* See https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */
@@ -105,10 +107,24 @@ $code-color: $color-primary !default;
 
 }
 
-// No slide number on title slide
-.reveal .slide-number > a[href*='title-slide'] {
+// FOOTER
+.reveal .footer {
+    color: $color-primary;
+}
+
+// DARK BACKGROUND SLIDES
+.reveal.has-dark-background .slide-number {
+    display: none !important;
+}
+
+.reveal.has-dark-background .progress,
+.reveal.has-dark-background .footer {
+    color: #ffffff !important;
+}
+
+.reveal.has-dark-background .slide-logo {
     display: none;
-  }
+}
 
 // TRANSITION SLIDES
 .reveal .slide-background.slide.level1 {
@@ -125,4 +141,15 @@ $code-color: $color-primary !default;
 
 .reveal .h2 {
     color: $color-primary !important;
+}
+
+// LAYOUT HELPERS
+.layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.layout-multi {
+    display: flex;
+    justify-content: space-around;
 }
