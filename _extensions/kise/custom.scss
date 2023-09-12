@@ -126,3 +126,14 @@ $code-color: $color-primary !default;
 .reveal .h2 {
     color: $color-primary !important;
 }
+
+// LAYOUT HELPERS
+.layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.layout-multi {
+    display: flex;
+    justify-content: space-around;
+}
