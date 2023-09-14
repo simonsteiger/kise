@@ -26,6 +26,14 @@ include-after: |
         Reveal.configure({ slideNumber: 'c' });
         document.querySelector("div.has-logo > img.slide-logo").style.display = null;
       }
+      // Change logo to negative version on dark slides
+      const divDarkBackground = event.currentSlide.querySelector('.has-dark-background');
+      if (divDarkBackground) {
+        const slideLogoImg = event.currentSlide.querySelector('img.slide-logo');
+        if (slideLogoImg) {
+          slideLogoImg.src = '_extensions/kise/logo_negative.svg';
+        }
+      }
     });
   </script>
 ---
@@ -42,6 +50,8 @@ using Distributions
 ```
 
 # h1 Header 2
+
+## h2 Header 2
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
 
