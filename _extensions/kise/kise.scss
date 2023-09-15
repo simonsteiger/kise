@@ -43,6 +43,16 @@ $code-color: $color-primary !default;
 
 /*-- scss:rules --*/
 
+// Bold text has primary KI color
+b, strong {
+    color: $color-primary;
+}
+
+// Nested lists have smaller font size
+ul > li > ul > li {
+    font-size: smaller;
+}
+
 // DEFAULT
 .reveal .progress {
     color: $color-primary;
