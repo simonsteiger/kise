@@ -11,6 +11,10 @@ $color-pale-rose: #FEECEC !default;
 $color-pale-blue: #EAF4F5 !default;
 $color-pale-grey: #F0F0F0 !default;
 
+// Colors in mermaid diagrams
+$mermaid-node-bg-color: $color-pale-blue;
+$mermaid-edge-color: darken($color-pale-grey, 30%);
+
 // Logo
 $img-logo-positive: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_positive.svg");
 $img-logo-negative: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_negative.svg");

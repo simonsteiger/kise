@@ -9,33 +9,6 @@ author:
   - name: Roger Rubicks
   - name: Shellie Trenton
 date: last-modified
-include-after: |
-  <script type="text/javascript">
-    Reveal.on('ready', event => {
-      if (event.indexh === 0) {
-        document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
-      }
-    });
-    Reveal.addEventListener('slidechanged', (event) => {
-      // Remove logo from title page
-      if (event.indexh === 0) {
-        Reveal.configure({ slideNumber: null });
-        document.querySelector("div.has-logo > img.slide-logo").style.display = "none";
-      }
-      if (event.indexh === 1) { 
-        Reveal.configure({ slideNumber: 'c' });
-        document.querySelector("div.has-logo > img.slide-logo").style.display = null;
-      }
-      // Change logo to negative version on dark slides
-      const divDarkBackground = event.currentSlide.querySelector('.has-dark-background');
-      if (divDarkBackground) {
-        const slideLogoImg = event.currentSlide.querySelector('img.slide-logo');
-        if (slideLogoImg) {
-          slideLogoImg.src = '_extensions/kise/logo_negative.svg';
-        }
-      }
-    });
-  </script>
 ---
 
 # h1 Header 1
