@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*-- scss:defaults --*/
 
 // Fonts
@@ -154,12 +156,29 @@ ul > li > ul > li {
 }
 
 // LAYOUT HELPERS
-.layout-split {
+@mixin grid-container($ncol: 2) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    $column-width: percentage(1 / $ncol); // Calculate the column width as a percentage
+    
+    // Create a list of column widths
+    $columns: ();
+    @for $i from 1 through $ncol {
+      $columns: append($columns, $column-width); // Append the column width to the list
+    }
+    
+    grid-template-columns: #{$columns}; // Interpolate the list into grid-template-columns
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
-.layout-multi {
-    display: flex;
-    justify-content: space-around;
+.grid-container-2 {
+    @include grid-container(2); // Generates "grid-template-columns: 50% 50%;"
+}
+
+.grid-container-3 {
+    @include grid-container(3); // Generates "grid-template-columns: 33% 33% 33%;"
+}
+
+.grid-container-4 {
+    @include grid-container(4); // Generates "grid-template-columns: 25% 25% 25% 25%;"
 }
