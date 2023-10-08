@@ -1,0 +1,106 @@
+b, strong {
+    color: $color-primary;
+}
+
+ul > li > ul > li {
+    font-size: smaller;
+}
+
+aside p {
+    color: black;
+}
+
+.reveal .progress {
+    color: $color-primary;
+}
+
+.reveal .slide-logo {
+    max-height: 6rem !important;
+}
+
+.reveal > .backgrounds {
+    z-index: -1;
+}
+
+.reveal .sourceCode {
+    outline: thin solid $color-primary !important;
+    border: none !important;
+    background-color: $color-pale-rose !important;
+}
+
+// TITLE SLIDE 
+.reveal .slide-background.quarto-title-block {
+    background-color: $presentation-heading-color;
+    background-image: $img-logo-negative;
+    background-size: 35%;
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+}
+
+#title-slide {
+
+    .title, .subtitle, .institute, .quarto-title-authors, .date {
+        color: #ffffff !important;
+        text-shadow: none;
+        text-align: left;
+        max-width: 60%;
+    }
+
+    .title {
+        font-weight: $title-font-weight;
+        font-size: $title-font-size;
+    }
+
+    .subtitle {
+        font-style: italic;
+        font-weight: $subtitle-font-weight;
+        font-size: $subtitle-font-size;
+    }
+
+    .date {
+        //font-style: italic;
+        font-size: $date-font-size;
+    }
+
+    .quarto-title-authors {
+        font-size: $author-font-size;
+        display: block;
+    }
+
+}
+
+// FOOTER
+.reveal .footer {
+    color: $color-primary;
+}
+
+// DARK BACKGROUND SLIDES
+.reveal.has-dark-background .slide-number {
+    display: none !important;
+}
+
+.reveal.has-dark-background .progress,
+.reveal.has-dark-background .footer {
+    color: #ffffff !important;
+}
+
+.reveal.has-dark-background .slide-logo {
+    display: none;
+}
+
+// TRANSITION SLIDES
+.reveal .slide-background.slide.level1 {
+    background-color: $color-primary;
+    background-image: $img-logo-negative;
+    background-size: 35%;
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+}
+
+.reveal .slide.level1 > h1 {
+    color: #ffffff;
+}
+
+.reveal .h2 {
+    color: $color-primary !important;
+}

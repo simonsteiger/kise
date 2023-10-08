@@ -1,0 +1,35 @@
+/*-- scss:rules --*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-pale-rose;
+    padding: $base-padding;
+    margin: $base-margin;
+    border: 1px solid darken($color-pale-rose, 10%);
+    border-radius: 10px;
+    max-height: 80%;
+    
+    .card-header {
+        padding-bottom: 1rem;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    .card-footer {
+        padding-top: 1rem;
+        text-align: right;
+        margin-top: auto;
+    }
+}

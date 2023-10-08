@@ -1,5 +1,3 @@
-@use "sass:math";
-
 /*-- scss:defaults --*/
 
 // Fonts
@@ -13,9 +11,26 @@ $color-pale-rose: #FEECEC !default;
 $color-pale-blue: #EAF4F5 !default;
 $color-pale-grey: #F0F0F0 !default;
 
-// Colors in mermaid diagrams
-$mermaid-node-bg-color: $color-pale-blue;
-$mermaid-edge-color: darken($color-pale-grey, 30%);
+$presentation-heading-color: $color-primary;
+
+// Light and dark
+$bg-light: #ffffff !default;
+$text-light: #ffffff !default;
+$bg-dark: $color-primary !default;
+$text-dark: $color-primary !default;
+// Link & Code
+$link-color: $color-primary !default;
+$code-color: $color-primary !default;
+// Mermaid
+$mermaid-node-bg-color: lighten($color-secondary, 15%) !default;
+$mermaid-node-fg-color: $color-secondary !default;
+$mermaid-edge-color: darken($color-pale-grey, 30%) !default;
+$mermaid-fg-color--lighter: darken($color-pale-blue, 30%) !default;
+$mermaid-fg-color--lightest: darken($color-pale-blue, 10%) !default;
+
+// Spacing
+$base-padding: 2rem;
+$base-margin: 1.5rem;
 
 // Logo
 $img-logo-positive: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_positive.svg");
@@ -32,153 +47,12 @@ $author-font-size: 1.33rem !default;
 // Date
 $date-font-size: 2rem !default;
 
-// Colors
-$presentation-heading-color: $color-primary;
-
-// Light and dark
-$bg-light: #ffffff !default;
-$text-light: #ffffff !default;
-$bg-dark: $color-primary !default;
-$text-dark: $color-primary !default;
-// Link & Code
-$link-color: $color-primary !default;
-$code-color: $color-primary !default;
-
 /* TODO: Customize presentation appearance by setting SCSS variables */
 /* See https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */
 
 /*-- scss:rules --*/
 
-// Bold text has primary KI color
-b, strong {
-    color: $color-primary;
-}
-
-// Nested lists have smaller font size
-ul > li > ul > li {
-    font-size: smaller;
-}
-
-// DEFAULT
-.reveal .progress {
-    color: $color-primary;
-}
-
-.reveal .slide-logo {
-    max-height: 6rem !important;
-}
-
-.reveal > .backgrounds {
-    z-index: -1;
-}
-
-.reveal .sourceCode {
-    outline: thin solid $color-primary !important;
-    border: none !important;
-    background-color: $color-pale-rose !important;
-}
-
-// TITLE SLIDE 
-.reveal .slide-background.quarto-title-block {
-    background-color: $presentation-heading-color;
-    background-image: $img-logo-negative;
-    background-size: 35%;
-    background-position: 95% 50%;
-    background-repeat: no-repeat;
-}
-
-#title-slide {
-
-    .title, .subtitle, .institute, .quarto-title-authors, .date {
-        color: #ffffff !important;
-        text-shadow: none;
-        text-align: left;
-        max-width: 60%;
-    }
-
-    .title {
-        font-weight: $title-font-weight;
-        font-size: $title-font-size;
-    }
-
-    .subtitle {
-        font-style: italic;
-        font-weight: $subtitle-font-weight;
-        font-size: $subtitle-font-size;
-    }
-
-    .date {
-        //font-style: italic;
-        font-size: $date-font-size;
-    }
-
-    .quarto-title-authors {
-        font-size: $author-font-size;
-        display: block;
-    }
-
-}
-
-// FOOTER
-.reveal .footer {
-    color: $color-primary;
-}
-
-// DARK BACKGROUND SLIDES
-.reveal.has-dark-background .slide-number {
-    display: none !important;
-}
-
-.reveal.has-dark-background .progress,
-.reveal.has-dark-background .footer {
-    color: #ffffff !important;
-}
-
-.reveal.has-dark-background .slide-logo {
-    display: none;
-}
-
-// TRANSITION SLIDES
-.reveal .slide-background.slide.level1 {
-    background-color: $color-primary;
-    background-image: $img-logo-negative;
-    background-size: 35%;
-    background-position: 95% 50%;
-    background-repeat: no-repeat;
-}
-
-.reveal .slide.level1 > h1 {
-    color: #ffffff;
-}
-
-.reveal .h2 {
-    color: $color-primary !important;
-}
-
-// LAYOUT HELPERS
-@mixin grid-container($ncol: 2) {
-    display: grid;
-    $column-width: percentage(1 / $ncol); // Calculate the column width as a percentage
-    
-    // Create a list of column widths
-    $columns: ();
-    @for $i from 1 through $ncol {
-      $columns: append($columns, $column-width); // Append the column width to the list
-    }
-    
-    grid-template-columns: #{$columns}; // Interpolate the list into grid-template-columns
-    column-gap: 10px;
-    row-gap: 10px;
-}
-
-.grid-container-2 {
-    @include grid-container(2); // Generates "grid-template-columns: 50% 50%;"
-}
-
-.grid-container-3 {
-    @include grid-container(3); // Generates "grid-template-columns: 33% 33% 33%;"
-}
-
-.grid-container-4 {
-    @include grid-container(4); // Generates "grid-template-columns: 25% 25% 25% 25%;"
-}
+@import "components/card";
+@import "components/reveal";
+@import "components/layout";
+@import "components/mermaid";
