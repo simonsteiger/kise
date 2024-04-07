@@ -1,0 +1,26 @@
+// Define KI color palette
+$color-primary: #570033 !default;
+$color-secondary: #FD886F !default;
+$color-pale-rose: #FEECEC !default;
+$color-pale-blue: #EAF4F5 !default;
+$color-pale-grey: #F0F0F0 !default;
+
+// Backgrounds
+$bg-light: #ffffff !default;
+$bg-dark: $color-primary !default;
+
+// Text
+$text-light: #ffffff !default;
+$text-dark: $color-primary !default;
+$presentation-heading-color: $color-primary;
+
+// Link & Code
+$link-color: $color-secondary !default;
+$code-color: $color-primary !default;
+
+// Mermaid
+$mermaid-node-bg-color: lighten($color-secondary, 15%) !default;
+$mermaid-node-fg-color: $color-secondary !default;
+$mermaid-edge-color: darken($color-pale-grey, 30%) !default;
+$mermaid-fg-color--lighter: darken($color-pale-blue, 30%) !default;
+$mermaid-fg-color--lightest: darken($color-pale-blue, 10%) !default;

@@ -6,6 +6,6 @@ contributes:
   formats:
     revealjs:
       theme: [default, kise.scss]
-      logo: logo_positive.svg
+      logo: img/logo_positive.svg
       slide-number: true
       date-format: long
