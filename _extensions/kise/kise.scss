@@ -5,12 +5,11 @@
 @import "variables/logos";
 @import "variables/spacing";
 
-/* TODO: Customize presentation appearance by setting SCSS variables */
-/* See https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */
-
 /*-- scss:rules --*/
 
 @import "rules/card";
 @import "rules/reveal";
 @import "rules/layout";
 @import "rules/mermaid";
+
+/* For more SCSS variables, see https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */

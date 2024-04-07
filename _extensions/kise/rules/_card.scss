@@ -1,24 +1,34 @@
-// Card element
-.card {
+/*.card {
     display: flex;
     flex-direction: column;
-    background-color: $color-pale-rose;
+    background-color: #fefaf6;
     padding: $base-padding;
     margin: $base-margin;
-    border: 1px solid darken($color-pale-rose, 10%);
-    border-radius: 10px;
+    border: 4px solid $color-pale-rose;
+    border-radius: 1rem;
+    box-shadow: 0px 3px 10px #0000001c;
     max-height: 80%;
-    
+
     .card-header {
-        padding-bottom: 1rem;
+        p {
+            margin: 0 0.5rem;
+            font-size: larger;
+            color: $color-primary;
+            font-weight: 700;
+        }
     }
 
     .card-body {
+        margin: $base-margin 0;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         flex-grow: 1;
-        
+
+        p {
+            margin: 0 0.5rem;
+        }
+
         ul {
             display: flex;
             flex-direction: row;
@@ -27,8 +37,64 @@
     }
 
     .card-footer {
-        padding-top: 1rem;
+        font-size: x-large;
         text-align: right;
         margin-top: auto;
+
+        p {
+            margin: 0 $base-margin / 2;
+        }
+    }
+
+    &--single {
+        @extend .card;
+        max-width: 40%;
+        max-height: 70%;
+    }
+
+    // would be cool to be able to extend the card so that it has a smaller fontsize across all elements
+}
+*/
+
+.card {
+    background-color: #fff;
+    border: 1px solid darken($color-pale-grey, 5%);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    margin-bottom: 1rem;
+
+    .card-header {
+        font-size: xx-large;
+        font-weight: 500;
+        background-color: $color-pale-grey;
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid darken($color-pale-grey, 5%);
+        border-radius: calc(0.5rem - 1px) calc(0.5rem - 1px) 0 0;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-body {
+        font-size: x-large;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .card-footer {
+        font-size: large;
+        background-color: $color-pale-grey;
+        padding: 0.75rem 1.25rem;
+        border-top: 1px solid darken($color-pale-grey, 5%);
+        border-radius: 0 0 calc(0.5rem - 1px) calc(0.5rem - 1px);
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &--single {
+        @extend .card;
+        max-width: 40%;
+        max-height: 70%;
     }
 }

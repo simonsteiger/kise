@@ -47,5 +47,78 @@ fig
 
 ## Cards
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+::: {.columns}
 
+::: {.column width=50%}
+
+::: {.card}
+
+::: {.card-header}
+A header
+:::
+
+::: {.card-body}
+Some body text.
+:::
+
+::: {.card-footer}
+A footer
+:::
+
+:::
+:::
+
+::: {.column width=50%}
+::: {.card}
+
+::: {.card-header}
+A header
+:::
+
+::: {.card-body}
+Some body text.
+:::
+
+::: {.card-footer}
+A footer
+:::
+
+:::
+
+:::
+
+:::
+
+Some more text can go below, but this layout is quite vanilla.
+
+## Cards in columns
+
+::: {.columns}
+
+::: {.column width=60%}
+#### Wow!
+
+This text is much more relevant.
+:::
+
+::: {.column width=40%}
+
+::: {.card}
+
+::: {.card-header}
+A card
+:::
+
+::: {.card-body}
+I think the text on cards should be slightly smaller than the normal text.
+:::
+
+::: {.card-footer}
+Still cool!
+:::
+
+:::
+
+:::
+
+:::

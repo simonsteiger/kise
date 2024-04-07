@@ -1,3 +1,7 @@
 // Spacing
-$base-padding: 2rem;
-$base-margin: 1.5rem;
+$base-padding: 1.25rem;
+$base-margin: 1rem;
+
+:root {
+    --r-heading-margin: 0 0 #{2*$base-margin} 0 !important;
+}
