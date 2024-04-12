@@ -1,58 +1,15 @@
 /*-- scss:defaults --*/
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=DM+Sans:400,700);
-$font-family-sans-serif: "DM Sans", Regular Regular, serif !default;
-
-// Color palette
-$color-primary: #570033 !default;
-$color-secondary: #FD886F !default;
-$color-pale-rose: #FEECEC !default;
-$color-pale-blue: #EAF4F5 !default;
-$color-pale-grey: #F0F0F0 !default;
-
-$presentation-heading-color: $color-primary;
-
-// Light and dark
-$bg-light: #ffffff !default;
-$text-light: #ffffff !default;
-$bg-dark: $color-primary !default;
-$text-dark: $color-primary !default;
-// Link & Code
-$link-color: $color-primary !default;
-$code-color: $color-primary !default;
-// Mermaid
-$mermaid-node-bg-color: lighten($color-secondary, 15%) !default;
-$mermaid-node-fg-color: $color-secondary !default;
-$mermaid-edge-color: darken($color-pale-grey, 30%) !default;
-$mermaid-fg-color--lighter: darken($color-pale-blue, 30%) !default;
-$mermaid-fg-color--lightest: darken($color-pale-blue, 10%) !default;
-
-// Spacing
-$base-padding: 2rem;
-$base-margin: 1.5rem;
-
-// Logo
-$img-logo-positive: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_positive.svg");
-$img-logo-negative: url("https://raw.githubusercontent.com/simonsteiger/kise/main/_extensions/kise/logo_negative.svg");
-
-// Title
-$title-font-size: 4rem !default;
-$title-font-weight: 700 !default; // 700 is bold
-// Subtitle
-$subtitle-font-size: 2rem !default;
-$subtitle-font-weight: 700 !default;
-// Author
-$author-font-size: 1.33rem !default;
-// Date
-$date-font-size: 2rem !default;
-
-/* TODO: Customize presentation appearance by setting SCSS variables */
-/* See https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/logos";
+@import "variables/spacing";
 
 /*-- scss:rules --*/
 
-@import "components/card";
-@import "components/reveal";
-@import "components/layout";
-@import "components/mermaid";
+@import "rules/card";
+@import "rules/reveal";
+@import "rules/layout";
+@import "rules/mermaid";
+
+/* For more SCSS variables, see https://quarto.org/docs/presentations/revealjs/themes.html#customizing-themes */

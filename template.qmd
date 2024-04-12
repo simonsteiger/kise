@@ -1,6 +1,6 @@
 ---
 title: A KI template
-subtitle: To give quarto revealjs presentations that KI touch
+subtitle: Varsågod, njuta av det! 🇸🇪
 format:
   kise-revealjs: default
 author:
@@ -11,20 +11,122 @@ author:
 date: last-modified
 ---
 
-# h1 Header 1
+# Basics
 
-## h2 Header 1
+## A plot with caption
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+```{julia}
+#| fig-cap: "Samples from GP prior"
+#| echo: false
+using Distributions, LinearAlgebra, CairoMakie, Random, Colors
+CairoMakie.activate!()
 
-``` julia
-using Distributions
-1 + 1
+const TyrianPurple = parse(Colorant, "#970058")
+
+Random.seed!(42)
+
+"Exponentiated quadratic kernel"
+expquad(x,y) = exp(-(1/8) * (sum((x-y).^2) / 5))
+
+"Add a small diagonal correction for numerical error to keep the covariance matrix positive definite."
+ensure_posdef(a) = a + 3eps(opnorm(a))I
+
+xseq = collect(-10:.1:10)
+
+# Draw from the prior.
+Xprior = reshape(xseq, 1, :)
+Nall = length(Xprior)
+original_covar = map(Base.splat(expquad), Iterators.product(only(eachrow(Xprior)), only(eachrow(Xprior))))
+covar = ensure_posdef(original_covar)
+mvn = MvNormal(zeros(Nall), covar)
+fig = Figure(size=(800,800))
+ax1 = Axis(fig[1,1], limits=((1, length(xseq)), nothing))
+foreach(10:50) do a
+    r = rand(mvn)
+    lines!(ax1, collect(keys(r)), r, color=TyrianPurple, alpha=a/100, linewidth=0.7)
+    # TODO turn off axis labels and grid, use TyrianPurple
+end
+hidedecorations!(ax1)
+#hidespines!(ax1, :r, :t)
+fig
 ```
 
-# h1 Header 2
+# Layouts
 
-## h2 Header 2
+## Cards
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+::: {.columns}
 
+::: {.column width=50%}
+
+::: {.card}
+
+::: {.card-header}
+A header
+:::
+
+::: {.card-body}
+Some body text.
+:::
+
+::: {.card-footer}
+A footer
+:::
+
+:::
+:::
+
+::: {.column width=50%}
+::: {.card}
+
+::: {.card-header}
+A header
+:::
+
+::: {.card-body}
+Some body text.
+:::
+
+::: {.card-footer}
+A footer
+:::
+
+:::
+
+:::
+
+:::
+
+Some more text can go below, but this layout is quite vanilla.
+
+## Cards in columns
+
+::: {.columns}
+
+::: {.column width=60%}
+#### Wow!
+
+This text is much more relevant.
+:::
+
+::: {.column width=40%}
+
+::: {.card}
+
+::: {.card-header}
+A card
+:::
+
+::: {.card-body}
+I think the text on cards should be slightly smaller than the normal text.
+:::
+
+::: {.card-footer}
+Still cool!
+:::
+
+:::
+
+:::
+
+:::
