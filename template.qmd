@@ -18,28 +18,36 @@ date: last-modified
 ```{julia}
 #| fig-cap: "Samples from GP prior"
 #| echo: false
-using Distributions, LinearAlgebra, CairoMakie
+using Distributions, LinearAlgebra, CairoMakie, Random, Colors
 CairoMakie.activate!()
 
+const TyrianPurple = parse(Colorant, "#970058")
+
+Random.seed!(42)
+
 "Exponentiated quadratic kernel"
-expquad(x,y) = exp(-(1/2)*sum((x-y).^2))
+expquad(x,y) = exp(-(1/8) * (sum((x-y).^2) / 5))
 
 "Add a small diagonal correction for numerical error to keep the covariance matrix positive definite."
 ensure_posdef(a) = a + 3eps(opnorm(a))I
 
+xseq = collect(-10:.1:10)
+
 # Draw from the prior.
-Xprior = reshape(collect(-5:.1:5), 1, :)
+Xprior = reshape(xseq, 1, :)
 Nall = length(Xprior)
 original_covar = map(Base.splat(expquad), Iterators.product(only(eachrow(Xprior)), only(eachrow(Xprior))))
 covar = ensure_posdef(original_covar)
 mvn = MvNormal(zeros(Nall), covar)
-fig = Figure()
-ax1 = Axis(fig[1,1])
-foreach(1:3) do _
+fig = Figure(size=(800,800))
+ax1 = Axis(fig[1,1], limits=((1, length(xseq)), nothing))
+foreach(10:50) do a
     r = rand(mvn)
-    lines!(ax1, collect(keys(r)), r)
+    lines!(ax1, collect(keys(r)), r, color=TyrianPurple, alpha=a/100, linewidth=0.7)
     # TODO turn off axis labels and grid, use TyrianPurple
 end
+hidedecorations!(ax1)
+#hidespines!(ax1, :r, :t)
 fig
 ```
 
