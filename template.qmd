@@ -130,3 +130,11 @@ Still cool!
 :::
 
 :::
+
+## Some code
+
+```julia
+using Distributions
+
+1 + 1
+```

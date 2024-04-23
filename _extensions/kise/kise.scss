@@ -1,12 +1,14 @@
 /*-- scss:defaults --*/
 
 @import "variables/colors";
+@import "variables/defaults";
 @import "variables/fonts";
 @import "variables/logos";
 @import "variables/spacing";
 
 /*-- scss:rules --*/
 
+@import "rules/general";
 @import "rules/components";
 @import "rules/reveal";
 @import "rules/layout";
