@@ -10,8 +10,8 @@
     }
 
     grid-template-columns: #{$columns}; // Interpolate the list into grid-template-columns
-    column-gap: 10px;
-    row-gap: 10px;
+    column-gap: $default-col-gap;
+    row-gap: $default-row-gap;
 }
 
 // Create descendant classes from mixin
