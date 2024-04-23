@@ -1,5 +1,5 @@
 // Grid layout helper
-@mixin grid-container($ncol: 2) {
+@mixin grid-layout($ncol: 2) {
     display: grid;
     $column-width: percentage(1 / $ncol); // Calculate the column width as a percentage
 
@@ -15,20 +15,20 @@
 }
 
 // Create descendant classes from mixin
-.grid-container-2 {
-    @include grid-container(2); // Generates "grid-template-columns: 50% 50%;"
+.grid-layout-2 {
+    @include grid-layout(2); // Generates "grid-template-columns: 50% 50%;"
 }
 
-.grid-container-3 {
-    @include grid-container(3); // Generates "grid-template-columns: 33% 33% 33%;"
+.grid-layout-3 {
+    @include grid-layout(3); // Generates "grid-template-columns: 33% 33% 33%;"
 }
 
-.grid-container-4 {
-    @include grid-container(4); // Generates "grid-template-columns: 25% 25% 25% 25%;"
+.grid-layout-4 {
+    @include grid-layout(4); // Generates "grid-template-columns: 25% 25% 25% 25%;"
 }
 
-.grid-container-5 {
-    @include grid-container(5); // Generates "grid-template-columns: 20% 20% 20% 20%;"
+.grid-layout-5 {
+    @include grid-layout(5); // Generates "grid-template-columns: 20% 20% 20% 20%;"
 }
 
 // Output
