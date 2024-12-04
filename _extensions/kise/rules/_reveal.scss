@@ -24,9 +24,9 @@ aside p {
 }
 
 .reveal .sourceCode {
-    outline: thin solid $color-primary !important;
+    outline: thin solid darken($color-pale-grey, 10%) !important;
     border: none !important;
-    background-color: $color-pale-rose !important;
+    background-color: $color-pale-grey !important;
 }
 
 // Title slide
@@ -56,13 +56,10 @@ aside p {
     }
 
     .subtitle {
-        font-style: italic;
-        font-weight: $subtitle-font-weight;
         font-size: $subtitle-font-size;
     }
 
     .date {
-        font-style: italic;
         font-size: $date-font-size;
     }
 
@@ -93,15 +90,15 @@ aside p {
 
 // Transition slides
 .reveal .slide-background.slide.level1 {
-    background-color: $color-primary;
-    background-image: $img-logo-negative;
+    background-color: $color-pale-blue;
+    background-image: $img-logo-positive;
     background-size: 35%;
     background-position: 95% 50%;
     background-repeat: no-repeat;
 }
 
 .reveal .slide.level1 > h1 {
-    color: #ffffff;
+    color: $color-plum;
 }
 
 .reveal .h2 {
