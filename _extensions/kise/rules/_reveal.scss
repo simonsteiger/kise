@@ -91,14 +91,15 @@ aside p {
 // Transition slides
 .reveal .slide-background.slide.level1 {
     background-color: $color-pale-blue;
-    background-image: $img-logo-positive;
-    background-size: 35%;
-    background-position: 95% 50%;
-    background-repeat: no-repeat;
 }
 
-.reveal .slide.level1 > h1 {
-    color: $color-plum;
+.reveal .slide.level1 {
+    text-align: center;
+    font-size: 3rem;
+    h1 {
+        font-size: 2.5rem;
+        color: $color-plum;
+    }
 }
 
 .reveal .h2 {
